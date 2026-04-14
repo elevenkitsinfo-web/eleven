@@ -1,0 +1,18 @@
+{% comment %} Featured Products Grid {% endcomment %}
+<div class="featured-products-grid">
+    {% for product in collections.frontpage.products %}
+        <div class="product">
+            <a href="{{ product.url }}">
+                <img src="{{ product.featured_image | img_url: 'medium' }}" alt="{{ product.title }}">
+                <h2>{{ product.title }}</h2>
+                <p class="price">{{ product.price | money }}</p>
+                {% if product.available %}
+                    <span class="badge available">Available</span>
+                {% else %}
+                    <span class="badge unavailable">Sold Out</span>
+                {% endif %}
+            </a>
+        </div>
+    {% endfor %}
+</div>
+<!-- End of Featured Products Grid -->
